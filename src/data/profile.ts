@@ -25,6 +25,15 @@ export type Project = {
   featured?: boolean;
 };
 
+export type NotableRepo = {
+  name: string;
+  href: string;
+  description: string;
+  language?: string;
+  stars?: number;
+  forks?: number;
+};
+
 export const profile = {
   name: "Tomáš Martinovič",
   degrees: "Ing., Ph.D.",
@@ -65,21 +74,26 @@ export const highlights = [
   }
 ];
 
-export const currentFocus = [
+export const notableRepos: NotableRepo[] = [
   {
-    title: "Biodiversity workflows",
-    detail:
-      "Designing interoperable data workflows and digital twins that support biodiversity analysis and scenario testing."
+    name: "BioDT Shiny Application",
+    href: "https://github.com/BioDT/biodt-shiny",
+    description: "BioDT Shiny application for interactive biodiversity data exploration and analysis."
   },
   {
-    title: "Applied AI on HPC infrastructure",
-    detail:
-      "Building practical AI and analytics pipelines that can scale from prototyping to production-like research environments."
+    name: "Subsim",
+    href: "https://github.com/ocean-data-factory-sweden/kso/tree/dev",
+    description: "Subsim for ocean image processing workflows."
   },
   {
-    title: "Training and transfer to teams",
-    detail:
-      "Converting advanced methods into practical training for researchers, data stewards, and technical project teams."
+    name: "EXA4MIND AI Inference Service",
+    href: "https://opencode.it4i.eu/exa4mind/platform/aqis/query-inference/ai-inference-service/",
+    description: "AI inference service for query-based model execution in EXA4MIND workflows."
+  },
+  {
+    name: "HPC AI Training App Workflow Nodes",
+    href: "https://opencode.it4i.eu/lexis-platform/orchestrator/workflow-nodes",
+    description: "Workflow node components used by the AI Training Application for HPC environments."
   }
 ];
 

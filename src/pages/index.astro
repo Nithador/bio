@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   awards,
   highlights,
+  notableRepos,
   profile,
   projects,
   publications,
@@ -52,6 +53,7 @@ const featuredPublications = publications.filter((publication) => publication.fe
     <a href="#profile">Profile</a>
     <a href="#research">Research</a>
     <a href="#projects">Projects</a>
+    <a href="#opensource">Open Source</a>
     <a href="#publications">Publications</a>
     <a href="#teaching">Teaching</a>
   </section>
@@ -102,6 +104,28 @@ const featuredPublications = publications.filter((publication) => publication.fe
             <div class="item-meta project-meta">
               {project.doi && <a href={`https://doi.org/${project.doi}`} target="_blank" rel="noreferrer">DOI {project.doi}</a>}
               {project.role && <span>{project.role}</span>}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section divided" id="opensource">
+    <div class="section-heading">
+      <p class="eyebrow">Open-Source Contributions</p>
+      <h2>Selected GitHub repositories with practical research and engineering outputs.</h2>
+    </div>
+    <div class="repo-grid">
+      {
+        notableRepos.map((repo) => (
+          <article class="repo-card">
+            <h3><a href={repo.href} target="_blank" rel="noreferrer">{repo.name}</a></h3>
+            <p>{repo.description}</p>
+            <div class="item-meta">
+              {repo.language && <span>{repo.language}</span>}
+              {typeof repo.stars === "number" && <span>Stars: {repo.stars}</span>}
+              {typeof repo.forks === "number" && <span>Forks: {repo.forks}</span>}
             </div>
           </article>
         ))
