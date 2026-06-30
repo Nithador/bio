@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroCanvas from "../components/HeroCanvas.astro";
 import {
   awards,
   currentFocus,
@@ -30,7 +29,6 @@ const withBase = (path: string) => {
 
 const featuredProjects = projects.filter((project) => project.featured).sort(byStartDateDesc).slice(0, 6);
 const featuredPublications = publications.filter((publication) => publication.featured).slice(0, 6);
-const quickProof = highlights.slice(0, 3);
 ---
 
 <BaseLayout
@@ -38,27 +36,6 @@ const quickProof = highlights.slice(0, 3);
   description={profile.shortSummary}
   active="home"
 >
-  <section class="hero-section">
-    <HeroCanvas />
-    <div class="hero-inner">
-      <p class="eyebrow">{profile.title} · {profile.affiliation}</p>
-      <h1>{profile.name}</h1>
-      <p class="hero-copy hero-proposition">{profile.valueProposition}</p>
-      <p class="hero-copy">{profile.summary}</p>
-      <p class="hero-note">{profile.collaborationNote}</p>
-      <ul class="proof-list" aria-label="Quick proof points">
-        {quickProof.map((item) => <li><strong>{item.value}</strong><span>{item.label}</span></li>)}
-      </ul>
-      <div class="hero-actions" aria-label="Profile actions">
-        <a class="button primary" href={withBase("/CV_Tomas_Martinovic_English_Full.pdf")}>View CV (PDF)</a>
-        <a class="button secondary" href={`mailto:${profile.email}`}>Discuss a collaboration</a>
-      </div>
-      <div class="link-row" aria-label="Professional profiles">
-        {profile.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
-      </div>
-    </div>
-  </section>
-
   <section class="section-anchor-nav" aria-label="Jump to section">
     <a href="#research">Research</a>
     <a href="#projects">Projects</a>

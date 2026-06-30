@@ -34,10 +34,6 @@ export const profile = {
   email: "tomas.martinovic@vsb.cz",
   summary:
     "I work at the intersection of high-performance computing, artificial intelligence, data-intensive workflows, and digital twins. My research connects nonlinear dynamics, time-series analysis, scalable algorithms, and research infrastructures that turn complex data into usable scientific systems.",
-  valueProposition:
-    "I help research teams turn complex data into usable scientific systems through applied AI, high-performance computing, and reproducible workflows.",
-  collaborationNote:
-    "Open to international research collaborations, applied R&D partnerships, and invited expert talks.",
   shortSummary:
     "Senior researcher building applied AI, HPC workflows, and biodiversity digital twin infrastructure.",
   links: [
