@@ -25,6 +25,13 @@ const iconLabel = {
   scopus: "Scopus",
   researcherid: "ResearcherID"
 };
+
+const withBase = (path: string) => {
+  const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\//, "")}`;
+};
 ---
 
 <!doctype html>
@@ -85,7 +92,15 @@ const iconLabel = {
             }
           </div>
         </div>
-        {frontmatter.photo && <img src={frontmatter.photo} alt="" class="cv-photo" />}
+        {
+          frontmatter.photo && (
+            <img
+              src={frontmatter.photo.startsWith("/") ? withBase(frontmatter.photo) : frontmatter.photo}
+              alt=""
+              class="cv-photo"
+            />
+          )
+        }
       </header>
 
       <article class="cv-content">

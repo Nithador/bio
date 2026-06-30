@@ -14,10 +14,17 @@ const {
   active = "home"
 } = Astro.props;
 
+const withBase = (path: string) => {
+  const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  return `${base}${path.replace(/^\//, "")}`;
+};
+
 const navItems = [
-  { key: "home", label: "Home", href: "/" },
-  { key: "publications", label: "Publications", href: "/publications/" },
-  { key: "cv", label: "CV", href: "/cv/" }
+  { key: "home", label: "Home", href: withBase("/") },
+  { key: "publications", label: "Publications", href: withBase("/publications/") },
+  { key: "cv", label: "CV", href: withBase("/cv/") }
 ];
 ---
 
@@ -31,7 +38,7 @@ const navItems = [
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#17201b" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
     <title>{title}</title>
   </head>
   <body>
