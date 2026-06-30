@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroCanvas from "../components/HeroCanvas.astro";
+import {
+  awards,
+  highlights,
+  profile,
+  projects,
+  publications,
+  researchThemes,
+  teaching
+} from "../data/profile";
+
+const getStartYear = (years: string) => Number.parseInt(years.match(/\d{4}/)?.[0] ?? "0", 10);
+const getEndYear = (years: string) => {
+  const matches = years.match(/\d{4}/g);
+  return Number.parseInt(matches?.[1] ?? matches?.[0] ?? "0", 10);
+};
+const byStartDateDesc = (left: { years: string }, right: { years: string }) =>
+  getStartYear(right.years) - getStartYear(left.years) ||
+  getEndYear(right.years) - getEndYear(left.years);
+
+const featuredProjects = projects.filter((project) => project.featured).sort(byStartDateDesc).slice(0, 6);
+const featuredPublications = publications.filter((publication) => publication.featured).slice(0, 6);
+---
+
+<BaseLayout
+  title={`${profile.name} | Research, AI & HPC`}
+  description={profile.shortSummary}
+  active="home"
+>
+  <section class="hero-section">
+    <HeroCanvas />
+    <div class="hero-inner">
+      <p class="eyebrow">{profile.title} · {profile.affiliation}</p>
+      <h1>{profile.name}</h1>
+      <p class="hero-copy">{profile.summary}</p>
+      <div class="hero-actions" aria-label="Profile actions">
+        <a class="button primary" href="/CV_Tomas_Martinovic_English_Full.pdf">Download CV</a>
+        <a class="button secondary" href={`mailto:${profile.email}`}>Contact</a>
+      </div>
+      <div class="link-row" aria-label="Professional profiles">
+        {profile.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-band" aria-label="Professional highlights">
+    {
+      highlights.map((highlight) => (
+        <div class="metric">
+          <strong>{highlight.value}</strong>
+          <span>{highlight.label}</span>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="section" id="research">
+    <div class="section-heading">
+      <p class="eyebrow">Research Focus</p>
+      <h2>Scientific software and workflows for complex data.</h2>
+    </div>
+    <div class="theme-grid">
+      {
+        researchThemes.map((theme) => (
+          <article class="theme-card">
+            <h3>{theme.name}</h3>
+            <p>{theme.summary}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section divided" id="projects">
+    <div class="section-heading">
+      <p class="eyebrow">Selected Projects</p>
+      <h2>European-scale research, applied AI, and digital twin infrastructure.</h2>
+    </div>
+    <div class="project-list">
+      {
+        featuredProjects.map((project) => (
+          <article class="project-item">
+            <div>
+              <span class="item-date">{project.years}</span>
+              <h3>{project.name}</h3>
+            </div>
+            <p>{project.description}</p>
+            <div class="item-meta project-meta">
+              {project.doi && <a href={`https://doi.org/${project.doi}`} target="_blank" rel="noreferrer">DOI {project.doi}</a>}
+              {project.role && <span>{project.role}</span>}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section two-column" id="publications">
+    <div class="section-heading sticky-heading">
+      <p class="eyebrow">Selected Publications</p>
+      <h2>From scalable recurrence analysis to digital twin prototypes.</h2>
+      <a class="text-link" href="/publications/">View all publications</a>
+    </div>
+    <div class="publication-list compact">
+      {
+        featuredPublications.map((publication) => (
+          <article class="publication-item">
+            <span class="item-date">{publication.year} · {publication.type === "journal" ? "Journal" : "Chapter"}</span>
+            <h3>{publication.title}</h3>
+            <p>{publication.authors}</p>
+            <p>{publication.venue}</p>
+            <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">DOI {publication.doi}</a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section divided two-column" id="teaching">
+    <div class="section-heading sticky-heading">
+      <p class="eyebrow">Teaching & Training</p>
+      <h2>Making parallel data processing and applied AI usable.</h2>
+      <a class="text-link" href="/cv/">See full CV</a>
+    </div>
+    <div class="stack">
+      <article class="plain-block">
+        <h3>{teaching.courses[0].name}</h3>
+        <p>{teaching.courses[0].years} · {teaching.courses[0].role}</p>
+      </article>
+      <article class="plain-block">
+        <h3>Training topics</h3>
+        <ul class="inline-list">
+          {teaching.trainingTopics.map((training) => <li>{training}</li>)}
+        </ul>
+      </article>
+      <article class="plain-block">
+        <h3>Awards</h3>
+        <ul class="timeline-list">
+          {awards.map((award) => <li><strong>{award.year}</strong><span>{award.title}</span></li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

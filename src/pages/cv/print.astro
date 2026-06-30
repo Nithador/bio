@@ -1,0 +1,96 @@
+---
+import CvContent, { frontmatter } from "../../content/cv.md";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { siClarivate, siGithub, siOrcid, siScopus } from "simple-icons";
+import "../../styles/cv-print.css";
+
+const links = frontmatter.links ?? [];
+
+const iconMap = {
+  github: siGithub,
+  orcid: siOrcid,
+  scopus: siScopus,
+  researcherid: siClarivate
+} as const;
+
+const linkedinIcon = faLinkedinIn.icon;
+const mailIcon = faEnvelope.icon;
+
+const iconLabel = {
+  email: "Email",
+  github: "GitHub",
+  linkedin: "LinkedIn",
+  orcid: "ORCID",
+  scopus: "Scopus",
+  researcherid: "ResearcherID"
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>{frontmatter.name} | {frontmatter.title}</title>
+  </head>
+  <body>
+    <main class="cv-print">
+      <header class="cv-header">
+        <div class="cv-identity">
+          <p class="cv-kicker">{frontmatter.title}</p>
+          <h1>{frontmatter.name}</h1>
+          <p class="cv-role">{frontmatter.role} · {frontmatter.affiliation}</p>
+          <div class="cv-contact">
+            <a class="cv-contact-link" href={`mailto:${frontmatter.email}`}>
+              <span class="cv-contact-icon cv-contact-icon-email" aria-hidden="true">
+                <svg viewBox={`0 0 ${mailIcon[0]} ${mailIcon[1]}`} role="img" focusable="false" aria-hidden="true">
+                  <path d={mailIcon[4]} fill="currentColor" />
+                </svg>
+              </span>
+              <span class="sr-only">{iconLabel.email}</span>
+              <span>{frontmatter.email}</span>
+            </a>
+            {
+              links.map((link) => (
+                <a class="cv-contact-link" href={link.href}>
+                  {link.icon === "linkedin" ? (
+                    <span
+                      class="cv-contact-icon cv-contact-icon-linkedin"
+                      aria-hidden="true"
+                      title={iconLabel.linkedin}
+                    >
+                      <svg viewBox={`0 0 ${linkedinIcon[0]} ${linkedinIcon[1]}`} role="img" focusable="false" aria-hidden="true">
+                        <path d={linkedinIcon[4]} fill="currentColor" />
+                      </svg>
+                    </span>
+                  ) : link.icon && iconMap[link.icon as keyof typeof iconMap] ? (
+                      <span
+                        class:list={["cv-contact-icon", `cv-contact-icon-${link.icon}`]}
+                        aria-hidden="true"
+                        title={iconLabel[link.icon as keyof typeof iconLabel] ?? link.label}
+                      >
+                        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                          <path d={iconMap[link.icon as keyof typeof iconMap].path} fill={`#${iconMap[link.icon as keyof typeof iconMap].hex}`} />
+                        </svg>
+                      </span>
+                    ) : (
+                      <span class="cv-contact-icon" aria-hidden="true">{link.label.slice(0, 2).toUpperCase()}</span>
+                    )
+                  }
+                  <span>{link.display ?? (link.value ? `${link.label}: ${link.value}` : link.label)}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        {frontmatter.photo && <img src={frontmatter.photo} alt="" class="cv-photo" />}
+      </header>
+
+      <article class="cv-content">
+        <CvContent />
+      </article>
+    </main>
+  </body>
+</html>

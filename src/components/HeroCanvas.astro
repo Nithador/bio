@@ -1,0 +1,119 @@
+<div class="hero-visual" aria-hidden="true">
+  <canvas id="research-canvas"></canvas>
+</div>
+
+<script>
+  const canvas = document.getElementById("research-canvas");
+
+  if (canvas instanceof HTMLCanvasElement) {
+    const context = canvas.getContext("2d");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+    let animationId = 0;
+
+    const points = Array.from({ length: 30 }, (_, index) => ({
+      seed: index,
+      x: 0,
+      y: 0,
+      radius: index % 5 === 0 ? 2.8 : 2
+    }));
+
+    function resize() {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = canvas.clientWidth;
+      height = canvas.clientHeight;
+      canvas.width = Math.max(1, Math.floor(width * ratio));
+      canvas.height = Math.max(1, Math.floor(height * ratio));
+      context?.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    function draw() {
+      if (!context) return;
+
+      const time = frame * 0.012;
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = "#f8faf9";
+      context.fillRect(0, 0, width, height);
+
+      const cell = Math.max(22, Math.min(42, width / 24));
+      context.strokeStyle = "rgba(23, 32, 27, 0.055)";
+      context.lineWidth = 1;
+      for (let x = 0; x < width; x += cell) {
+        context.beginPath();
+        context.moveTo(x, 0);
+        context.lineTo(x, height);
+        context.stroke();
+      }
+      for (let y = 0; y < height; y += cell) {
+        context.beginPath();
+        context.moveTo(0, y);
+        context.lineTo(width, y);
+        context.stroke();
+      }
+
+      points.forEach((point, index) => {
+        const column = (index % 6) / 5;
+        const row = Math.floor(index / 6) / 4;
+        point.x = width * (0.18 + column * 0.7) + Math.sin(time + point.seed) * 16;
+        point.y = height * (0.2 + row * 0.55) + Math.cos(time * 0.8 + point.seed * 0.7) * 18;
+      });
+
+      for (let index = 0; index < points.length; index += 1) {
+        for (let other = index + 1; other < points.length; other += 1) {
+          const a = points[index];
+          const b = points[other];
+          const distance = Math.hypot(a.x - b.x, a.y - b.y);
+          if (distance < Math.min(165, width * 0.18)) {
+            context.strokeStyle = `rgba(15, 118, 110, ${0.2 - distance / 900})`;
+            context.beginPath();
+            context.moveTo(a.x, a.y);
+            context.lineTo(b.x, b.y);
+            context.stroke();
+          }
+        }
+      }
+
+      context.lineWidth = 2;
+      context.strokeStyle = "rgba(180, 83, 9, 0.62)";
+      context.beginPath();
+      for (let x = 0; x <= width; x += 5) {
+        const y =
+          height * 0.72 +
+          Math.sin(x * 0.014 + time * 1.4) * 22 +
+          Math.sin(x * 0.041 + time * 0.7) * 7;
+        if (x === 0) {
+          context.moveTo(x, y);
+        } else {
+          context.lineTo(x, y);
+        }
+      }
+      context.stroke();
+
+      points.forEach((point) => {
+        context.fillStyle = point.seed % 4 === 0 ? "#b45309" : "#0f766e";
+        context.beginPath();
+        context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+        context.fill();
+      });
+
+      frame += 1;
+      if (!reducedMotion.matches) {
+        animationId = window.requestAnimationFrame(draw);
+      }
+    }
+
+    resize();
+    draw();
+    window.addEventListener("resize", () => {
+      resize();
+      draw();
+    });
+    reducedMotion.addEventListener("change", draw);
+
+    window.addEventListener("pagehide", () => {
+      window.cancelAnimationFrame(animationId);
+    });
+  }
+</script>

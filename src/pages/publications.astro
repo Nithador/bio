@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile, publications } from "../data/profile";
+
+const journalCount = publications.filter((publication) => publication.type === "journal").length;
+const chapterCount = publications.filter((publication) => publication.type === "chapter").length;
+---
+
+<BaseLayout
+  title={`Publications | ${profile.name}`}
+  description={`Research publications by ${profile.name}.`}
+  active="publications"
+>
+  <section class="page-hero">
+    <p class="eyebrow">Publications</p>
+    <h1>Journal articles, chapters, and research outputs.</h1>
+    <p>
+      A structured publication list extracted from the full academic CV. DOI links open the publisher record.
+    </p>
+  </section>
+
+  <section class="section publication-section">
+    <div class="filter-bar" aria-label="Publication filters">
+      <button class="filter-button" type="button" data-publication-filter="all" aria-pressed="true">
+        All <span>{publications.length}</span>
+      </button>
+      <button class="filter-button" type="button" data-publication-filter="journal" aria-pressed="false">
+        Journal Articles <span>{journalCount}</span>
+      </button>
+      <button class="filter-button" type="button" data-publication-filter="chapter" aria-pressed="false">
+        Book Chapters <span>{chapterCount}</span>
+      </button>
+    </div>
+
+    <div class="publication-list full">
+      {
+        publications.map((publication) => (
+          <article class="publication-item" data-publication-type={publication.type}>
+            <span class="item-date">{publication.year} · {publication.type === "journal" ? "Journal Article" : "Book Chapter"}</span>
+            <h2>{publication.title}</h2>
+            <p>{publication.authors}</p>
+            <p>{publication.venue}</p>
+            <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">DOI {publication.doi}</a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll("[data-publication-filter]"));
+    const entries = Array.from(document.querySelectorAll("[data-publication-type]"));
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!(button instanceof HTMLButtonElement)) return;
+
+        const filter = button.dataset.publicationFilter;
+        buttons.forEach((control) => {
+          if (control instanceof HTMLButtonElement) {
+            control.setAttribute("aria-pressed", String(control === button));
+          }
+        });
+
+        entries.forEach((entry) => {
+          if (!(entry instanceof HTMLElement)) return;
+          entry.hidden = filter !== "all" && entry.dataset.publicationType !== filter;
+        });
+      });
+    });
+  </script>
+</BaseLayout>

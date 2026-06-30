@@ -1,0 +1,22 @@
+---
+import CvContent, { frontmatter } from "../content/cv.md";
+import { profile } from "../data/profile";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title={`CV | ${profile.name}`} description={`Academic CV for ${profile.name}.`} active="cv">
+  <section class="page-hero">
+    <p class="eyebrow">{frontmatter.title}</p>
+    <h1>{frontmatter.name}</h1>
+    <p>{frontmatter.role} · {frontmatter.affiliation}</p>
+    <div class="hero-actions">
+      <a class="button primary" href="/CV_Tomas_Martinovic_English_Full.pdf">Download PDF</a>
+      <a class="button secondary" href="/cv/print/">Print View</a>
+      <a class="button secondary" href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a>
+    </div>
+  </section>
+
+  <section class="section cv-markdown">
+    <CvContent />
+  </section>
+</BaseLayout>
