@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   awards,
-  currentFocus,
   highlights,
   profile,
   projects,
@@ -66,23 +65,6 @@ const featuredPublications = publications.filter((publication) => publication.fe
         </div>
       ))
     }
-  </section>
-
-  <section class="section divided" id="focus">
-    <div class="section-heading">
-      <p class="eyebrow">Current Focus</p>
-      <h2>What I am building and where I collaborate right now.</h2>
-    </div>
-    <div class="focus-grid">
-      {
-        currentFocus.map((item) => (
-          <article class="focus-card">
-            <h3>{item.title}</h3>
-            <p>{item.detail}</p>
-          </article>
-        ))
-      }
-    </div>
   </section>
 
   <section class="section" id="research">
