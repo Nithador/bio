@@ -7,7 +7,10 @@ import { chromium } from "playwright";
 const root = resolve("dist");
 const publicOutput = resolve("public/CV_Tomas_Martinovic_English_Full.pdf");
 const distOutput = resolve("dist/CV_Tomas_Martinovic_English_Full.pdf");
-const route = "/cv/print/";
+const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const isUserSite = repoName.toLowerCase() === "nithador.github.io";
+const basePath = repoName && !isUserSite ? `/${repoName}` : "";
+const route = `${basePath}/cv/print/`;
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
@@ -22,9 +25,12 @@ const mimeTypes = {
 function fileForRequest(url) {
   const requestUrl = new URL(url, "http://127.0.0.1");
   const pathname = decodeURIComponent(requestUrl.pathname);
+  const normalizedPathname = basePath && pathname.startsWith(`${basePath}/`)
+    ? pathname.slice(basePath.length)
+    : pathname;
   const candidate = pathname.endsWith("/")
-    ? join(root, pathname, "index.html")
-    : join(root, pathname);
+    ? join(root, normalizedPathname, "index.html")
+    : join(root, normalizedPathname);
   const resolved = resolve(candidate);
 
   if (!resolved.startsWith(root)) {
