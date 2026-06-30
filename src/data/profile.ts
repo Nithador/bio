@@ -17,6 +17,7 @@ export type Project = {
   years: string;
   name: string;
   description: string;
+  impact?: string;
   role?: string;
   doi?: string;
   grant?: string;
@@ -33,6 +34,10 @@ export const profile = {
   email: "tomas.martinovic@vsb.cz",
   summary:
     "I work at the intersection of high-performance computing, artificial intelligence, data-intensive workflows, and digital twins. My research connects nonlinear dynamics, time-series analysis, scalable algorithms, and research infrastructures that turn complex data into usable scientific systems.",
+  valueProposition:
+    "I help research teams turn complex data into usable scientific systems through applied AI, high-performance computing, and reproducible workflows.",
+  collaborationNote:
+    "Open to international research collaborations, applied R&D partnerships, and invited expert talks.",
   shortSummary:
     "Senior researcher building applied AI, HPC workflows, and biodiversity digital twin infrastructure.",
   links: [
@@ -61,6 +66,24 @@ export const highlights = [
   {
     value: "Lecturer",
     label: "Parallel data processing, AI, HPC, R, and Python training"
+  }
+];
+
+export const currentFocus = [
+  {
+    title: "Biodiversity workflows",
+    detail:
+      "Designing interoperable data workflows and digital twins that support biodiversity analysis and scenario testing."
+  },
+  {
+    title: "Applied AI on HPC infrastructure",
+    detail:
+      "Building practical AI and analytics pipelines that can scale from prototyping to production-like research environments."
+  },
+  {
+    title: "Training and transfer to teams",
+    detail:
+      "Converting advanced methods into practical training for researchers, data stewards, and technical project teams."
   }
 ];
 
@@ -136,6 +159,7 @@ export const projects: Project[] = [
     years: "2026-2030",
     name: "PeatGenie",
     description: "Research project focused on peatland-related data and digital research workflows.",
+    impact: "Creating AI agents for the stakeholder interface and interaction with peatland models.",
     role: "Work Package Leader",
     category: "international",
     featured: true
@@ -144,6 +168,7 @@ export const projects: Project[] = [
     years: "2023-2027",
     name: "DTO-BioFlow",
     description: "Integration of biodiversity monitoring data into the Digital Twin Ocean.",
+    impact: "Optimized and scaled Digital Twin Ocean use cases to HPC environments.",
     role: "Task Leader",
     doi: "10.3030/101112823",
     category: "international",
@@ -154,6 +179,7 @@ export const projects: Project[] = [
     name: "BioDT",
     description:
       "Biodiversity Digital Twin for advanced modelling, simulation, and prediction capabilities.",
+    impact: "Delivered biodiversity prototype digital twin used for modelling and scenario exploration.",
     role: "Work Package Leader",
     doi: "10.3030/101057437",
     category: "international",
@@ -163,6 +189,7 @@ export const projects: Project[] = [
     years: "2026-2029",
     name: "Czech AI Factory",
     description: "European AI factory initiative supporting AI adoption and service infrastructure.",
+    impact: "Contributing to AI service and MLOps development.",
     role: "Work Package Co-Leader",
     doi: "10.3030/101314740",
     category: "international",
@@ -172,6 +199,7 @@ export const projects: Project[] = [
     years: "2025-2028",
     name: "LAIFS",
     description: "LUMI AI Factory - Service Center.",
+    impact: "Supports practical access to AI services through the LUMI ecosystem.",
     doi: "10.3030/101234208",
     category: "international",
     featured: true
@@ -180,6 +208,7 @@ export const projects: Project[] = [
     years: "2023-2026",
     name: "EXA4MIND",
     description: "EXtreme Analytics for MINing Data spaces.",
+    impact: "Designed data analytics pipelines and LLM inference service solution.",
     role: "Task Leader",
     doi: "10.3030/101092944",
     category: "international",

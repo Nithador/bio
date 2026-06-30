@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroCanvas from "../components/HeroCanvas.astro";
 import {
   awards,
+  currentFocus,
   highlights,
   profile,
   projects,
@@ -29,6 +30,7 @@ const withBase = (path: string) => {
 
 const featuredProjects = projects.filter((project) => project.featured).sort(byStartDateDesc).slice(0, 6);
 const featuredPublications = publications.filter((publication) => publication.featured).slice(0, 6);
+const quickProof = highlights.slice(0, 3);
 ---
 
 <BaseLayout
@@ -41,15 +43,27 @@ const featuredPublications = publications.filter((publication) => publication.fe
     <div class="hero-inner">
       <p class="eyebrow">{profile.title} · {profile.affiliation}</p>
       <h1>{profile.name}</h1>
+      <p class="hero-copy hero-proposition">{profile.valueProposition}</p>
       <p class="hero-copy">{profile.summary}</p>
+      <p class="hero-note">{profile.collaborationNote}</p>
+      <ul class="proof-list" aria-label="Quick proof points">
+        {quickProof.map((item) => <li><strong>{item.value}</strong><span>{item.label}</span></li>)}
+      </ul>
       <div class="hero-actions" aria-label="Profile actions">
-        <a class="button primary" href={withBase("/CV_Tomas_Martinovic_English_Full.pdf")}>Download CV</a>
-        <a class="button secondary" href={`mailto:${profile.email}`}>Contact</a>
+        <a class="button primary" href={withBase("/CV_Tomas_Martinovic_English_Full.pdf")}>View CV (PDF)</a>
+        <a class="button secondary" href={`mailto:${profile.email}`}>Discuss a collaboration</a>
       </div>
       <div class="link-row" aria-label="Professional profiles">
         {profile.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
       </div>
     </div>
+  </section>
+
+  <section class="section-anchor-nav" aria-label="Jump to section">
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
   </section>
 
   <section class="metric-band" aria-label="Professional highlights">
@@ -61,6 +75,23 @@ const featuredPublications = publications.filter((publication) => publication.fe
         </div>
       ))
     }
+  </section>
+
+  <section class="section divided" id="focus">
+    <div class="section-heading">
+      <p class="eyebrow">Current Focus</p>
+      <h2>What I am building and where I collaborate right now.</h2>
+    </div>
+    <div class="focus-grid">
+      {
+        currentFocus.map((item) => (
+          <article class="focus-card">
+            <h3>{item.title}</h3>
+            <p>{item.detail}</p>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   <section class="section" id="research">
@@ -94,6 +125,7 @@ const featuredPublications = publications.filter((publication) => publication.fe
               <h3>{project.name}</h3>
             </div>
             <p>{project.description}</p>
+            {project.impact && <p class="impact-line"><strong>Impact:</strong> {project.impact}</p>}
             <div class="item-meta project-meta">
               {project.doi && <a href={`https://doi.org/${project.doi}`} target="_blank" rel="noreferrer">DOI {project.doi}</a>}
               {project.role && <span>{project.role}</span>}
@@ -116,6 +148,7 @@ const featuredPublications = publications.filter((publication) => publication.fe
           <article class="publication-item">
             <span class="item-date">{publication.year} · {publication.type === "journal" ? "Journal" : "Chapter"}</span>
             <h3>{publication.title}</h3>
+            <span class="pub-tag">{publication.type === "journal" ? "Peer-reviewed article" : "Book chapter"}</span>
             <p>{publication.authors}</p>
             <p>{publication.venue}</p>
             <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">DOI {publication.doi}</a>
@@ -148,6 +181,18 @@ const featuredPublications = publications.filter((publication) => publication.fe
           {awards.map((award) => <li><strong>{award.year}</strong><span>{award.title}</span></li>)}
         </ul>
       </article>
+    </div>
+  </section>
+
+  <section class="section divided cta-band" aria-label="Call to action">
+    <div class="cta-inner">
+      <p class="eyebrow">Collaboration</p>
+      <h2>Interested in applied AI and HPC for complex research data?</h2>
+      <p>I am available for research partnerships, expert input on project design, and invited talks.</p>
+      <div class="hero-actions">
+        <a class="button primary" href={`mailto:${profile.email}`}>Email me</a>
+        <a class="button secondary" href={withBase("/cv/")}>Open full CV</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
