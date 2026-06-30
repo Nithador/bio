@@ -13,9 +13,8 @@ const withBase = (path: string) => {
 
 <BaseLayout title={`CV | ${profile.name}`} description={`Academic CV for ${profile.name}.`} active="cv">
   <section class="page-hero">
-    <p class="eyebrow">{frontmatter.title}</p>
-    <h1>{frontmatter.name}</h1>
-    <p>{frontmatter.role} · {frontmatter.affiliation}</p>
+    <h1>{profile.name}</h1>
+    <p>{frontmatter.affiliation}</p>
     <div class="hero-actions">
       <a class="button primary" href={withBase("/CV_Tomas_Martinovic_English_Full.pdf")}>Download PDF</a>
       <a class="button secondary" href={withBase("/cv/print/")}>Print View</a>
