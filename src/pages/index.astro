@@ -36,7 +36,21 @@ const featuredPublications = publications.filter((publication) => publication.fe
   description={profile.shortSummary}
   active="home"
 >
+  <section class="page-hero" id="profile">
+    <p class="eyebrow">{profile.title} · {profile.affiliation} · {profile.location}</p>
+    <h1>{profile.name}</h1>
+    <p>{profile.summary}</p>
+    <div class="hero-actions" aria-label="Profile actions">
+      <a class="button primary" href={withBase("/CV_Tomas_Martinovic_English_Full.pdf")}>View CV (PDF)</a>
+      <a class="button secondary" href={`mailto:${profile.email}`}>Contact</a>
+    </div>
+    <div class="link-row" aria-label="Professional profiles">
+      {profile.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
+    </div>
+  </section>
+
   <section class="section-anchor-nav" aria-label="Jump to section">
+    <a href="#profile">Profile</a>
     <a href="#research">Research</a>
     <a href="#projects">Projects</a>
     <a href="#publications">Publications</a>
