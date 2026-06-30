@@ -148,7 +148,6 @@ const quickProof = highlights.slice(0, 3);
           <article class="publication-item">
             <span class="item-date">{publication.year} · {publication.type === "journal" ? "Journal" : "Chapter"}</span>
             <h3>{publication.title}</h3>
-            <span class="pub-tag">{publication.type === "journal" ? "Peer-reviewed article" : "Book chapter"}</span>
             <p>{publication.authors}</p>
             <p>{publication.venue}</p>
             <a href={`https://doi.org/${publication.doi}`} target="_blank" rel="noreferrer">DOI {publication.doi}</a>
