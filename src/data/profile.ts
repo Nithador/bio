@@ -42,7 +42,7 @@ export const profile = {
   location: "Ostrava, Czech Republic",
   email: "tomas.martinovic@vsb.cz",
   summary:
-    "I work at the intersection of high-performance computing, artificial intelligence, data-intensive workflows, and digital twins. My research connects nonlinear dynamics, time-series analysis, scalable algorithms, and research infrastructures that turn complex data into usable scientific systems.",
+    "I work at the intersection of high-performance computing, artificial intelligence, data-intensive workflows, and digital twins. My current research focuses on AI/ML applications in HPC and data-intensive environments.",
   shortSummary:
     "Senior researcher building applied AI, HPC workflows, and biodiversity digital twin infrastructure.",
   links: [
