@@ -368,7 +368,7 @@ TDWG 2026 co-convening session on *Digital Twins, Data Infrastructures*.
 
 :::cv-entry{date="since 2026"}
 ELIXIR CZ AI Positioning framework.
-k:::
+:::
 
 :::cv-entry{date="since 2024"}
 ETP4HPC SRA7 HPC / AI Applications and Workflows.
