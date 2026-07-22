@@ -106,9 +106,9 @@ Thesis title: *Operation research applications in public sector*.
 ### Primary investigator
 
 :::cv-entry{date="2026-2030"}
-**PeatGenie**, project details to be confirmed.
+**PeatGenie**, Simulating Management Decisions with Peatland Digital Twins and Generative AI.
 
-*Work Package Leader*.
+DOI: [10.3030/101287905](https://doi.org/10.3030/101287905). *Work Package Leader*.
 :::
 
 :::cv-entry{date="2023-2027"}
@@ -362,6 +362,13 @@ CISIM - International Conference on Computer Information Systems and Industrial 
 :::
 
 ### Participation in Organisations and Conference
+:::cv-entry{date="2026"}
+TDWG 2026 co-convening session on *Digital Twins, Data Infrastructures*.
+:::
+
+:::cv-entry{date="since 2026"}
+ELIXIR CZ AI Positioning framework.
+k:::
 
 :::cv-entry{date="since 2024"}
 ETP4HPC SRA7 HPC / AI Applications and Workflows.
@@ -369,14 +376,6 @@ ETP4HPC SRA7 HPC / AI Applications and Workflows.
 
 :::cv-entry{date="since 2020"}
 BDVA Task Force Finance.
-:::
-
-:::cv-entry{date="2026"}
-TDWG 2026 co-convening session on *Digital Twins, Data Infrastructures*.
-:::
-
-:::cv-entry{date="since 2026"}
-ELIXIR CZ AI Positioning framework.
 :::
 
 ### International Mobility
