@@ -211,7 +211,7 @@ LQ1602.
 
 ### University Courses
 
-:::cv-entry{date="since 2024"}
+:::cv-entry{date="since 2019"}
 **Libraries for parallel data processing.**
 
 *Tutor, teacher giving lectures*.
