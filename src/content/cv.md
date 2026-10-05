@@ -73,21 +73,23 @@ Thesis title: *Operation research applications in public sector*.
 
 ### Journal Articles
 
+1. Dejan Brkić et al. "ShinyEnet: an in-house simulation software for data-driven waste-to-energy gasification and pyrolysis." *International Journal of Sustainable Energy*, 2026. DOI: [10.1080/14786451.2026.2673270](https://doi.org/10.1080/14786451.2026.2673270).
+1. Adil Jhangeer et al. "A new technique for characterizing nonlinear dynamical system behavior using self-organizing maps and clustering." *Ain Shams Engineering Journal*, 2026. DOI: [10.1016/j.asej.2026.104206](https://doi.org/10.1016/j.asej.2026.104206).
+1. Janeide Padilha et al. "Real-time tracking must be at the core of sustainable development goals." *AMBIO*, 2026. DOI: [10.1007/s13280-026-02465-0](https://doi.org/10.1007/s13280-026-02465-0).
+1. Andrii Patrikei et al. "Essential time series characteristics for human motion analysis based on Self-Organizing Map clustering." *Acta Gymnica*, 2026. DOI: [10.5507/ag.2026.004](https://doi.org/10.5507/ag.2026.004).
+1. Muhammad Iqbal et al. "Demonstration of Sensitive Analysis and Optical Soliton Patterns in a (4+1) Dimensional Boiti-Leon-Manna Pempinelli Equation: Dynamic Insights into Bifurcation, Chaotic Behavior." *Chaos Theory and Applications*, 2025. DOI: [10.51537/chaos.1518307](https://doi.org/10.51537/chaos.1518307).
+1. Stéphane Louise et al. "Modeling and implementing an earthquake and tsunami event-triggered, time-constrained impact assessment workflow." *The International Journal of High Performance Computing Applications*, 2025. DOI: [10.1177/10943420251343794](https://doi.org/10.1177/10943420251343794).
+1. Allan Souza et al. "Fragmented Networks: Challenges in communication and cohesion of European Biodiversity Research Infrastructures." *Biodiversity Data Journal*, 2025. DOI: [10.3897/BDJ.13.e148079](https://doi.org/10.3897/BDJ.13.e148079).
 1. Desalegn Chala et al. "Prototype biodiversity digital twin: crop wild relatives genetic resources for food security." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e125192](https://doi.org/10.3897/rio.10.e125192).
-2. Jürgen Groeneveld et al. "Prototype Biodiversity Digital Twin: honey bees in agricultural landscapes." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e125167](https://doi.org/10.3897/rio.10.e125167).
-3. Muhammad Iqbal et al. "Demonstration of Sensitive Analysis and Optical Soliton Patterns in a (4+1) Dimensional Boiti-Leon-Manna Pempinelli Equation: Dynamic Insights into Bifurcation, Chaotic Behavior." *Chaos Theory and Applications*, 2025. DOI: [10.51537/chaos.1518307](https://doi.org/10.51537/chaos.1518307).
-4. Adil Jhangeer et al. "A new technique for characterizing nonlinear dynamical system behavior using self-organizing maps and clustering." *Ain Shams Engineering Journal*, 2026. DOI: [10.1016/j.asej.2026.104206](https://doi.org/10.1016/j.asej.2026.104206).
-5. Marek Lampart and Tomas Martinovic. "A survey of tools detecting the dynamical properties of one-dimensional families." *Advances in Electrical and Electronic Engineering*, 2017. DOI: [10.15598/aeee.v15i2.2314](https://doi.org/10.15598/aeee.v15i2.2314).
-6. Stéphane Louise et al. "Modeling and implementing an earthquake and tsunami event-triggered, time-constrained impact assessment workflow." *The International Journal of High Performance Computing Applications*, 2025. DOI: [10.1177/10943420251343794](https://doi.org/10.1177/10943420251343794).
-7. Tomas Martinovic and Jan Fulnecek. "Fast Algorithm for Contactless Partial Discharge Detection on Remote Gateway Device." *IEEE Transactions on Power Delivery*, 2022. DOI: [10.1109/TPWRD.2021.3104746](https://doi.org/10.1109/TPWRD.2021.3104746).
-8. T. Martinovič. "Alternative approaches of evaluating the 0-1 test for chaos." *International Journal of Computer Mathematics*, 2020. DOI: [10.1080/00207160.2019.1701662](https://doi.org/10.1080/00207160.2019.1701662).
-9. Tomáš Martinovič. "Chaotic behaviour of noisy traffic data." *Mathematical Methods in the Applied Sciences*, 2018. DOI: [10.1002/mma.4234](https://doi.org/10.1002/mma.4234).
-10. Tomáš Martinovič and Georg Zitzlsberger. "Highly scalable algorithm for computation of recurrence quantitative analysis." *The Journal of Supercomputing*, 2019. DOI: [10.1007/s11227-018-2350-5](https://doi.org/10.1007/s11227-018-2350-5).
-11. Andrii Patrikei et al. "Essential time series characteristics for human motion analysis based on Self-Organizing Map clustering." *Acta Gymnica*, 2026. DOI: [10.5507/ag.2026.004](https://doi.org/10.5507/ag.2026.004).
-12. Joan Planas-Iglesias et al. "AggreProt: a web server for predicting and engineering aggregation prone regions in proteins." *Nucleic Acids Research*, 2024. DOI: [10.1093/nar/gkae420](https://doi.org/10.1093/nar/gkae420).
-13. Simon Rolph et al. "Prototype Digital Twin: Recreation and biodiversity cultural ecosystem services." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e125450](https://doi.org/10.3897/rio.10.e125450).
-14. Allan Souza et al. "Fragmented Networks: Challenges in communication and cohesion of European Biodiversity Research Infrastructures." *Biodiversity Data Journal*, 2025. DOI: [10.3897/BDJ.13.e148079](https://doi.org/10.3897/BDJ.13.e148079).
-15. Franziska Taubert et al. "Prototype Biodiversity Digital Twin: grassland biodiversity dynamics." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e124168](https://doi.org/10.3897/rio.10.e124168).
+1. Jürgen Groeneveld et al. "Prototype Biodiversity Digital Twin: honey bees in agricultural landscapes." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e125167](https://doi.org/10.3897/rio.10.e125167).
+1. Joan Planas-Iglesias et al. "AggreProt: a web server for predicting and engineering aggregation prone regions in proteins." *Nucleic Acids Research*, 2024. DOI: [10.1093/nar/gkae420](https://doi.org/10.1093/nar/gkae420).
+1. Simon Rolph et al. "Prototype Digital Twin: Recreation and biodiversity cultural ecosystem services." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e125450](https://doi.org/10.3897/rio.10.e125450).
+1. Franziska Taubert et al. "Prototype Biodiversity Digital Twin: grassland biodiversity dynamics." *Research Ideas and Outcomes*, 2024. DOI: [10.3897/rio.10.e124168](https://doi.org/10.3897/rio.10.e124168).
+1. Tomas Martinovic and Jan Fulnecek. "Fast Algorithm for Contactless Partial Discharge Detection on Remote Gateway Device." *IEEE Transactions on Power Delivery*, 2022. DOI: [10.1109/TPWRD.2021.3104746](https://doi.org/10.1109/TPWRD.2021.3104746).
+1. T. Martinovič. "Alternative approaches of evaluating the 0-1 test for chaos." *International Journal of Computer Mathematics*, 2020. DOI: [10.1080/00207160.2019.1701662](https://doi.org/10.1080/00207160.2019.1701662).
+1. Tomáš Martinovič and Georg Zitzlsberger. "Highly scalable algorithm for computation of recurrence quantitative analysis." *The Journal of Supercomputing*, 2019. DOI: [10.1007/s11227-018-2350-5](https://doi.org/10.1007/s11227-018-2350-5).
+1. Tomáš Martinovič. "Chaotic behaviour of noisy traffic data." *Mathematical Methods in the Applied Sciences*, 2018. DOI: [10.1002/mma.4234](https://doi.org/10.1002/mma.4234).
+1. Marek Lampart and Tomas Martinovic. "A survey of tools detecting the dynamical properties of one-dimensional families." *Advances in Electrical and Electronic Engineering*, 2017. DOI: [10.15598/aeee.v15i2.2314](https://doi.org/10.15598/aeee.v15i2.2314).
 
 ### Books and Chapters
 
@@ -296,6 +298,10 @@ Data science with R and Python - Ostrava.
 :::
 
 ### Summer School Lectures
+
+:::cv-entry{date="September 2026"}
+**Program committee and lectures**, CZAI Summer School, Ostrava.
+:::
 
 :::cv-entry{date="March 2025"}
 **Organising committee and lectures**, BioDT School, Lecce.

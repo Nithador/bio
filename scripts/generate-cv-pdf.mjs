@@ -7,7 +7,7 @@ import { chromium } from "playwright";
 const root = resolve("dist");
 const publicOutput = resolve("public/CV_Tomas_Martinovic_English_Full.pdf");
 const distOutput = resolve("dist/CV_Tomas_Martinovic_English_Full.pdf");
-const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "My-website";
 const isUserSite = repoName.toLowerCase() === "nithador.github.io";
 const basePath = repoName && !isUserSite ? `/${repoName}` : "";
 const route = `${basePath}/cv/print/`;
